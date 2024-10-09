@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { FaPhone, FaCalendarAlt } from 'react-icons/fa';
-import Calendario from './Calendario'; // Asegúrate de importar el componente Calendario
-import { FaTimes } from 'react-icons/fa'; // Asegúrate de importar el ícono
+import Calendario from './Calendario';  
+import { FaTimes } from 'react-icons/fa';  
 
 function ContactCard() {
-    const telefono = '+525579339433'; // Cambia este número por tu número de WhatsApp
-    const [isCalendarioVisible, setCalendarioVisible] = useState(false); // Estado para manejar la visibilidad del calendario
+    const telefono = '+5215533285931';  
+    const [isCalendarioVisible, setCalendarioVisible] = useState(false);  
 
     const abrirCalendario = () => {
-        setCalendarioVisible(true); // Cambia el estado para mostrar el calendario
+        setCalendarioVisible(true); 
     };
 
     const cerrarCalendario = () => {
-        setCalendarioVisible(false); // Cambia el estado para ocultar el calendario
+        setCalendarioVisible(false);  
     };
 
     return (
@@ -26,11 +26,11 @@ function ContactCard() {
                 </p>
             </div>
             <div className="flex justify-between mt-4">
-                {/* Botón Llamar */}
+    
                 <a
-                    href={`https://wa.me/${telefono}`} // Enlace para WhatsApp
-                    target="_blank" // Abre en una nueva pestaña
-                    rel="noopener noreferrer" // Seguridad para enlaces externos
+                    href={`https://wa.me/${telefono}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
                     className="flex items-center bg-green-500 text-white py-2 px-8 rounded shadow"
                 >
                     <FaPhone className="mr-2" /> WhatsApp
@@ -38,7 +38,7 @@ function ContactCard() {
 
                 {/* Botón Reservar */}
                 <button 
-                    onClick={abrirCalendario} // Agrega el evento onClick
+                    onClick={abrirCalendario} 
                     className="flex items-center bg-blue-500 text-white py-4 px-8 rounded shadow"
                 >
                     <FaCalendarAlt className="mr-2" /> Reservar

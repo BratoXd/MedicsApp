@@ -20,7 +20,7 @@ function Calendario() {
         ],
     };
 
-    const telefono = '+525579339433'; // Cambia este número por tu número de WhatsApp
+    const telefono = '+5215533285931';  
 
     const enviarWhatsApp = (dia, horario) => {
         const mensaje = `Quiero una cita el ${dia} de ${horario}`;

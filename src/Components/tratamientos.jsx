@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Tratamientos() {
-    // Definir los tratamientos con sus respectivos enlaces a Wikipedia
+ 
     const tratamientos = [
         { nombre: 'Apendicitis', enlace: 'https://es.wikipedia.org/wiki/Apendicitis' },
         { nombre: 'Circuncisión', enlace: 'https://es.wikipedia.org/wiki/Circuncisi%C3%B3n' },
@@ -15,7 +15,7 @@ function Tratamientos() {
     return (
         <div className="mt-4 p-6 bg-white shadow-md rounded-md">
  
-            {/* Expert in: */}
+ 
             <h4 className="text-lg font-semibold text-blue-900">El doctor es experto en:</h4>
             <br></br>
             <div className="flex flex-wrap">

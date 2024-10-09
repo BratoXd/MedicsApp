@@ -1,16 +1,22 @@
 import React from 'react';
 
 function Tratamientos() {
- 
     const tratamientos = [
         { nombre: 'Apendicitis', enlace: 'https://es.wikipedia.org/wiki/Apendicitis' },
-        { nombre: 'Circuncisión', enlace: 'https://es.wikipedia.org/wiki/Circuncisi%C3%B3n' },
-        { nombre: 'Cirugía de la Hernia Inguinal', enlace: 'https://es.wikipedia.org/wiki/Hernia_inguinal' },        
-        { nombre: 'Criptorquidia', enlace: 'https://es.wikipedia.org/wiki/Criptorquidia' },
-        { nombre: 'Estreñimiento', enlace: 'https://es.wikipedia.org/wiki/Estre%C3%B1imiento' },
-        { nombre: 'Malformaciones Congénitas', enlace: 'https://es.wikipedia.org/wiki/Malformaciones_cong%C3%A9nitas' },
-        { nombre: 'Cirugía de la Hernia Umbilical', enlace: 'https://es.wikipedia.org/wiki/Hernia_umbilical' }
+        { nombre: 'Hernia inguinal', enlace: 'https://es.wikipedia.org/wiki/Hernia_inguinal' },
+        { nombre: 'Hernia umbilical', enlace: 'https://es.wikipedia.org/wiki/Hernia_umbilical' },
+        { nombre: 'Testículo no descendido', enlace: 'https://es.wikipedia.org/wiki/Criptorquidia' },
+        { nombre: 'Hidrocele', enlace: 'https://es.wikipedia.org/wiki/Hidrocele' },
+        { nombre: 'Reflujo gastroesofágico', enlace: 'https://es.wikipedia.org/wiki/Reflujo_gastroesof%C3%A1gico' },
+        { nombre: 'Tumores', enlace: 'https://es.wikipedia.org/wiki/Tumor' },
+        { nombre: 'Atresia esofágica', enlace: 'https://es.wikipedia.org/wiki/Atresia_esof%C3%A1gica' },
+        { nombre: 'Atresia intestinal', enlace: 'https://es.wikipedia.org/wiki/Atresia_intestinal' },
+        { nombre: 'Abdomen agudo', enlace: 'https://es.wikipedia.org/wiki/Abdomen_agudo' },
+        { nombre: 'Gastrosquisis/Onfalocele', enlace: 'https://es.wikipedia.org/wiki/Gastrosquisis' },
+        { nombre: 'Colocación de accesos vasculares', enlace: 'https://es.wikipedia.org/wiki/Acceso_vascular' },
+        { nombre: 'Urgencias médico-quirúrgicas', enlace: 'https://es.wikipedia.org/wiki/Urgencia_m%C3%A9dico-quir%C3%BArgica' }
     ];
+    
 
     return (
         <div className="mt-4 p-6 bg-white shadow-md rounded-md">

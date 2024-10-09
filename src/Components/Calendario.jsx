@@ -3,22 +3,48 @@ import React from 'react';
 function Calendario() {
     const disponibilidad = {
         Lunes: [
-            { horario: '7:00 AM - 11:00 AM' },
-            { horario: '6:00 PM - 8:00 PM' },
+            { horario: '8:00 AM - 9:00 AM' }, 
+            { horario: '9:00 AM - 10:00 AM' },
+            { horario: '10:00 AM - 11:00 AM' },
+            { horario: '11:00 AM - 12:00 PM' },
         ],
-        Martes: [],
-        Miércoles: [],
+        Martes: [
+            { horario: '8:00 AM - 9:00 AM' }, 
+            { horario: '9:00 AM - 10:00 AM' },
+            { horario: '10:00 AM - 11:00 AM' },
+            { horario: '11:00 AM - 12:00 PM' },
+        ],
+        Miércoles: [
+            { horario: '8:00 AM - 9:00 AM' }, 
+            { horario: '9:00 AM - 10:00 AM' },
+            { horario: '10:00 AM - 11:00 AM' },
+            { horario: '11:00 AM - 12:00 PM' },
+        ],
         Jueves: [
-            { horario: '7:00 AM - 11:00 AM' },
+            { horario: '8:00 AM - 9:00 AM' }, 
+            { horario: '9:00 AM - 10:00 AM' },
+            { horario: '10:00 AM - 11:00 AM' },
+            { horario: '11:00 AM - 12:00 PM' },
         ],
-        Viernes: [],
+        Viernes: [
+            { horario: '8:00 AM - 9:00 AM' }, 
+            { horario: '9:00 AM - 10:00 AM' },
+            { horario: '10:00 AM - 11:00 AM' },
+            { horario: '11:00 AM - 12:00 PM' },
+        ],
         Sábado: [
-            { horario: '3:00 PM - 7:00 PM' },
+            { horario: '9:00 AM - 10:00 AM' },
+            { horario: '10:00 AM - 11:00 AM' },
+            { horario: '11:00 AM - 12:00 PM' },
+            { horario: '12:00 PM - 1:00 PM' },
+            { horario: '1:00 PM - 2:00 PM' },
+            { horario: '2:00 PM - 3:00 PM' },
+            { horario: '3:00 PM - 4:00 PM' },
+            { horario: '4:00 PM - 5:00 PM' },
         ],
-        Domingo: [
-            { horario: '3:00 PM - 7:00 PM' },
-        ],
+        Domingo: [], // Sin disponibilidad
     };
+    
 
     const telefono = '+5215533285931';  
 

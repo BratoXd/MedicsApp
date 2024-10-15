@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaPhone, FaCalendarAlt, FaTimes } from 'react-icons/fa';
 import Calendario from './Calendario';
 
@@ -13,6 +13,24 @@ function ContactCard() {
     const cerrarCalendario = () => {
         setCalendarioVisible(false);
     };
+
+
+    // Efecto para desactivar el scroll cuando el modal está visible
+    useEffect(() => {
+        if (isCalendarioVisible) {
+            // Desactiva el scroll
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Reactiva el scroll cuando se cierra el modal
+            document.body.style.overflow = 'auto';
+        }
+
+        // Limpieza: asegurarse de que el scroll esté reactivado al desmontar el componente
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [isCalendarioVisible]);
+
 
     return (
         <div className="mt-4 p-6 bg-white shadow-md rounded-md">

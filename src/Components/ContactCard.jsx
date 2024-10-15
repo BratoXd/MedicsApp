@@ -2,30 +2,33 @@ import React, { useState, useEffect } from 'react';
 import { FaPhone, FaCalendarAlt, FaTimes } from 'react-icons/fa';
 import Calendario from './Calendario';
 
-function ContactCard() {
+ 
+
+function ContactCard(  {setIsSticky } ) {
     const telefono = '+5215533285931';
-    const [isCalendarioVisible, setCalendarioVisible] = useState(false);
+    const [isCalendarioVisible, setLocalCalendarioVisible] = useState(false);
 
     const abrirCalendario = () => {
-        setCalendarioVisible(true);
+        setLocalCalendarioVisible(true);
+        setIsSticky(false);
     };
 
     const cerrarCalendario = () => {
-        setCalendarioVisible(false);
+        setLocalCalendarioVisible(false);
+        setIsSticky(true);
     };
 
-
-    // Efecto para desactivar el scroll cuando el modal está visible
+ 
     useEffect(() => {
         if (isCalendarioVisible) {
-            // Desactiva el scroll
+ 
             document.body.style.overflow = 'hidden';
         } else {
-            // Reactiva el scroll cuando se cierra el modal
+ 
             document.body.style.overflow = 'auto';
+            
         }
-
-        // Limpieza: asegurarse de que el scroll esté reactivado al desmontar el componente
+ 
         return () => {
             document.body.style.overflow = 'auto';
         };

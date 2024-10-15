@@ -6,10 +6,13 @@ import Consultas from './Components/Consultas';
 import CV from './Components/ExperienciaProfesional';
 import Tratamientos from './Components/tratamientos';
 import Calendario from './Components/Calendario'; // Importa el nuevo componente
+
 function DoctorProfile() {
   const [isSticky, setIsSticky] = useState(false); // Estado para saber si el banner es sticky
+  const [isCalendarioVisible, setCalendarioVisible] = useState(false); // Controlar visibilidad del modal
+
   const handleScroll = () => {
-    if (window.scrollY > 300) { // Ajusta este valor según la altura de tu tarjeta
+    if (window.scrollY > 300  ) { // Ajusta este valor según la altura de tu tarjeta
       setIsSticky(true);
     } else {
       setIsSticky(false);
@@ -29,7 +32,7 @@ function DoctorProfile() {
     <Container maxWidth="lg">
       <Header />
       <div className={`contact-banner ${isSticky ? 'sticky' : ''}`}>
-        <ContactCard />
+        <ContactCard setIsSticky={setIsSticky} />
       </div>
       <div style={{ marginTop: '20px' }}>
         <div className="card"><Consultas /></div>

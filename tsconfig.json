@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",                   // O el nivel de ECMAScript que prefieras
+    "module": "commonjs",              // O "esnext", según tu configuración
+    "jsx": "react",                    // Cambia a "react-jsx" si usas React 17+
+    "strict": true,                    // Habilitar comprobaciones estrictas
+    "esModuleInterop": true,           // Habilitar interoperabilidad con módulos ES
+    "skipLibCheck": true,              // Omitir la verificación de tipos de los archivos de declaración
+    "forceConsistentCasingInFileNames": true // Mantener el uso consistente de mayúsculas/minúsculas en los nombres de archivo
+  },
+  "include": [
+    "src/**/*"                         // Incluir todos los archivos en la carpeta src
+  ]
+}

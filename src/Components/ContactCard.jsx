@@ -42,7 +42,7 @@ function ContactCard(  {setIsSticky } ) {
                     Dr. Prisitas
                 </h2>
                 <p className="text-sm">
-                    Cirugía pediátrica en el Estado de México.
+                   Su papa se llama BRATO !!!
                 </p>
             </div>
             <div className="flex justify-between mt-4">

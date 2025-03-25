@@ -39,7 +39,7 @@ function ContactCard(  {setIsSticky } ) {
         <div className="mt-4 p-6 bg-white shadow-md rounded-md">
             <div className="text-center">
                 <h2 className="text-lg font-bold text-blue-400">
-                    Dr. NESTOR GIBRAN LOPEZ DIAZ
+                    Dr. Prisitas
                 </h2>
                 <p className="text-sm">
                     Cirugía pediátrica en el Estado de México.

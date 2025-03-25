@@ -6,6 +6,10 @@ import Consultas from './Components/Consultas';
 import CV from './Components/ExperienciaProfesional';
 import Tratamientos from './Components/tratamientos';
 import Calendario from './Components/Calendario'; // Importa el nuevo componente
+import DoctorForm from './Components/DoctorForm';
+import MedicosList from './Components/MedicosList';
+ 
+ 
 
 function DoctorProfile() {
   const [isSticky, setIsSticky] = useState(false); // Estado para saber si el banner es sticky
@@ -29,18 +33,22 @@ function DoctorProfile() {
 
 
   return (
-    <Container maxWidth="lg">
-      <Header />
-      <div className={`contact-banner ${isSticky ? 'sticky' : ''}`}>
-        <ContactCard setIsSticky={setIsSticky} />
-      </div>
-      <div style={{ marginTop: '20px' }}>
-        <div className="card"><Consultas /></div>
-        <div className="card"><CV /></div>
-        <div className="card"><Tratamientos /></div>
-        <div className="card"><Calendario /></div> 
-      </div>
-    </Container>
+     <Container maxWidth="lg">
+       <Header />
+       <div className={`contact-banner ${isSticky ? 'sticky' : ''}`}>
+         <ContactCard setIsSticky={setIsSticky} />
+       </div>
+       <div style={{ marginTop: '20px' }}>
+         <div className="card"><Consultas /></div>
+         <div className="card"><CV /></div>
+         <div className="card"><Tratamientos /></div>
+         <div className="card"><Calendario /></div> 
+       </div>
+     </Container>
+  // <div><DoctorForm /></div> 
+   //    <div>         <MedicosList /></div> 
+     
+   
   );
 }
 

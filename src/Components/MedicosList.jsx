@@ -17,7 +17,7 @@ const MedicosList = () => {
 
     return (
         <div>
-            <h1>Médicos Disponibles</h1>
+ 
             <ul>
                 {medicos.map((medico) => (
                     <li key={medico.id}>

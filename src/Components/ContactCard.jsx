@@ -2,33 +2,33 @@ import React, { useState, useEffect } from 'react';
 import { FaPhone, FaCalendarAlt, FaTimes } from 'react-icons/fa';
 import Calendario from './Calendario';
 
- 
 
-function ContactCard(  {setIsSticky } ) {
-    const telefono = '+5215533285931';
+
+function ContactCard({ setIsSticky, medico }) {
+    const telefono = medico.Phone;
     const [isCalendarioVisible, setLocalCalendarioVisible] = useState(false);
 
     const abrirCalendario = () => {
         setLocalCalendarioVisible(true);
-        setIsSticky(false);
+
     };
 
     const cerrarCalendario = () => {
         setLocalCalendarioVisible(false);
-        setIsSticky(true);
+
     };
 
- 
+
     useEffect(() => {
         if (isCalendarioVisible) {
- 
+
             document.body.style.overflow = 'hidden';
         } else {
- 
+
             document.body.style.overflow = 'auto';
-            
+
         }
- 
+
         return () => {
             document.body.style.overflow = 'auto';
         };
@@ -39,10 +39,10 @@ function ContactCard(  {setIsSticky } ) {
         <div className="mt-4 p-6 bg-white shadow-md rounded-md">
             <div className="text-center">
                 <h2 className="text-lg font-bold text-blue-400">
-                    Dr. Prisitas
+                    Dr.  {medico.DrName}
                 </h2>
                 <p className="text-sm">
-                   Su papa se llama BRATO !!!
+                    {medico.Charge}
                 </p>
             </div>
             <div className="flex justify-between mt-4">
@@ -66,19 +66,22 @@ function ContactCard(  {setIsSticky } ) {
 
             {/* Modal para el Calendario */}
             {isCalendarioVisible && (
-                <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-                    <div className="bg-white rounded-md p-4 shadow-lg relative max-h-[80%] overflow-y-auto w-full md:w-1/2">
-                        <div className="flex justify-between items-center mb-4 border-b pb-2">
-                            <button
-                                onClick={cerrarCalendario}
-                                className="text-red-500">
-                                <FaTimes />
-                            </button>
-                        </div>
-                        <Calendario />
-                    </div>
-                </div>
-            )}
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+        <div className="bg-white rounded-md p-4 shadow-lg relative max-h-[80%] overflow-y-auto w-full md:w-1/2">
+            {/* Botón de cerrar con fondo translúcido y borde redondeado */}
+            <div className="sticky top-0 left-0 right-0 flex justify-start p-2 z-50">
+                <button 
+                    onClick={cerrarCalendario} 
+                    className="bg-gray-800 bg-opacity-50 text-white p-2 rounded-full shadow-md hover:bg-opacity-75 transition duration-200"
+                >
+                    <FaTimes className="text-lg" />
+                </button>
+            </div>
+
+            <Calendario medico={medico} />
+        </div>
+    </div>
+)}
         </div>
     );
 }

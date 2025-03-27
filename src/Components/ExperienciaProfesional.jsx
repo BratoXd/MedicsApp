@@ -1,14 +1,22 @@
 import React from 'react';
 import './App.css';
-function ExperienciaProfesional() {
+function ExperienciaProfesional({ medico } ) {    
     return (
         <div className="mt-4 p-6 bg-white shadow-md rounded-md">
             {/* Experiencia Profesional */}
             <div className="mb-4">
                 <h3 className="text-lg font-semibold text-blue-900">Experiencia Profesional</h3>
                 <ul className=" list-disc list-inside mt-1 text-sm text-gray-600 custom-list">
-                    <li >Médico cirujano egresado de la Universidad Justo Sierra en Medicina</li>   
- 
+                 
+                 
+                                 {medico.ExperienciaProfesional.map((exp) => (
+                                     <li key={exp.id}>
+                                         {/* Agregar un Link para redirigir a la página del médico */}
+                                            {exp.name}
+                                     </li>
+                                 ))}
+                 
+         
                 </ul>
  
             </div>
@@ -18,7 +26,12 @@ function ExperienciaProfesional() {
                 <h3 className="text-lg font-semibold text-blue-900">Especialización</h3>
  
                 <ul className=" list-disc list-inside mt-1 text-sm text-gray-600 custom-list">
-                    <li >Alta especialidad en Cirugía Neonatal en el Instituto Nacional de Perinatología 'Dr. Isidro Espinosa de los Reyes</li>   
+                {medico.Especializaciones.map((esp) => (
+                                     <li key={esp.id}>
+                                         {/* Agregar un Link para redirigir a la página del médico */}
+                                            {esp.name}
+                                     </li>
+                                 ))}
                 </ul>
 
 
@@ -28,12 +41,12 @@ function ExperienciaProfesional() {
             <div className="mb-4">
                 <h3 className="text-lg font-semibold text-blue-900">Logros Académicos Destacados</h3>
                 <ul className=" list-disc list-inside mt-1 text-sm text-gray-600 custom-list">
-                    <li >Competencias en microcirugía por el Instituto Nacional de Cancerología.</li>
-                    <li>Médico cirujano pediatra del Hospital General de México 'Dr. Eduardo Liceaga'.</li>
-                    <li>Competencias en cirugía laparoscópica por la Universidad Panamericana</li>
-                    <li>Cirujano pediatra egresado del Centro Médico Nacional Siglo XXI</li>
-                    <li>Especialista en cirugía pediátrica.</li>
-                    <li>Competencias en cirugía laparoscópica por la Universidad Panamericana</li>
+                {medico.Logros.map((log) => (
+                                     <li key={log.id}>
+                                         {/* Agregar un Link para redirigir a la página del médico */}
+                                            {log.name}
+                                     </li>
+                                 ))}
                 </ul>
             </div>
  
@@ -42,11 +55,8 @@ function ExperienciaProfesional() {
  
                 </div>
                 <div className="mb-4">
-                <p className="text-lg font-semibold text-blue-900">Atención a la zona metropolitana y a la Ciudad de México.</p>
-                <ul className=" list-disc list-inside mt-1 text-sm text-gray-600 custom-list">
-                    <li >Atención de excelencia en diagnóstico y tratamiento quirúrgico en niños de 0 a 18 años.</li>
+                <p className="text-lg font-semibold text-blue-900">Atención en la  Ciudad de México y zona metropolitana.</p>
  
-                </ul>
             </div>
 
  

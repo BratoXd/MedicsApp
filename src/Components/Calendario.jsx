@@ -1,55 +1,16 @@
 import React from 'react';
 
-function Calendario() {
-    const disponibilidad = {
-        Lunes: [
-            { horario: '8:00 AM - 9:00 AM' }, 
-            { horario: '9:00 AM - 10:00 AM' },
-            { horario: '10:00 AM - 11:00 AM' },
-            { horario: '11:00 AM - 12:00 PM' },
-        ],
-        Martes: [
-            { horario: '8:00 AM - 9:00 AM' }, 
-            { horario: '9:00 AM - 10:00 AM' },
-            { horario: '10:00 AM - 11:00 AM' },
-            { horario: '11:00 AM - 12:00 PM' },
-        ],
-        Miércoles: [
-            { horario: '8:00 AM - 9:00 AM' }, 
-            { horario: '9:00 AM - 10:00 AM' },
-            { horario: '10:00 AM - 11:00 AM' },
-            { horario: '11:00 AM - 12:00 PM' },
-        ],
-        Jueves: [
-            { horario: '8:00 AM - 9:00 AM' }, 
-            { horario: '9:00 AM - 10:00 AM' },
-            { horario: '10:00 AM - 11:00 AM' },
-            { horario: '11:00 AM - 12:00 PM' },
-        ],
-        Viernes: [
-            { horario: '8:00 AM - 9:00 AM' }, 
-            { horario: '9:00 AM - 10:00 AM' },
-            { horario: '10:00 AM - 11:00 AM' },
-            { horario: '11:00 AM - 12:00 PM' },
-        ],
-        Sábado: [
-            { horario: '9:00 AM - 10:00 AM' },
-            { horario: '10:00 AM - 11:00 AM' },
-            { horario: '11:00 AM - 12:00 PM' },
-            { horario: '12:00 PM - 1:00 PM' },
-            { horario: '1:00 PM - 2:00 PM' },
-            { horario: '2:00 PM - 3:00 PM' },
-            { horario: '3:00 PM - 4:00 PM' },
-            { horario: '4:00 PM - 5:00 PM' },
-        ],
-        Domingo: [], // Sin disponibilidad
-    };
+function Calendario({ medico } ) {
+    const disponibilidad =  medico.disponibilidad
     
 
-    const telefono = '+5215533285931';  
+    const telefono = medico.Phone;  
 
     const enviarWhatsApp = (dia, horario) => {
-        const mensaje = `Quiero una cita el ${dia} de ${horario}`;
+        const mensaje = `Estimado Dr: ${medico.DrName}.\n 
+Me comunico con usted a través de MEDIC-APP. Me gustaría agendar una cita el
+${dia} a las  ${horario}. Quedo en espera de su confirmación. \n
+Saludos cordiales`;
         const enlace = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
         window.open(enlace, '_blank');
     };
@@ -64,6 +25,7 @@ function Calendario() {
                         {horarios.length > 0 ? (
                             <div className="flex flex-col items-center">
                                 {horarios.map((item, index) => (
+
                                     <button
                                         key={index}
                                         onClick={() => enviarWhatsApp(dia, item.horario)}

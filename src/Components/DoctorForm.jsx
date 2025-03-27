@@ -4,6 +4,7 @@ import { TextField, Button, MenuItem } from "@mui/material";
 const DoctorForm = () => {
     const [formData, setFormData] = useState(
         {
+            Id: '1',
             DrName: '',
             Charge: '',
             Phone: '',
@@ -50,9 +51,33 @@ const handleSubmit = async (e) => {
     console.log(formData);
 };
 
+const handleSubmitUpdate = async (e) => {
+    e.preventDefault();
+
+    try {
+        const response = await fetch('http://localhost:4000/ActualizarTempMedicos', {
+            method: 'PUT', // Cambiar de POST a PUT
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData) // formData debe incluir el Id
+        });
+
+        if (!response.ok) {
+            throw new Error('Error en la red o en la respuesta del servidor');
+        }
+
+        const data = await response.json();
+        console.log("Respuesta del servidor:", data);
+    } catch (error) {
+        console.error('Error:', error); 
+    }
+
+    console.log("Datos enviados:", formData);
+};
 
     return(
-        <form  onSubmit={handleSubmit}  className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg" > 
+        <form  onSubmit={handleSubmitUpdate}  className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg" > 
             <h2 className="text-2xl mb-4 text-center">Formulario de Médico</h2>
             <TextField
                 label="Nombre del Doctor"

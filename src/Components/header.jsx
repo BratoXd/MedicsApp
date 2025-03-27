@@ -1,14 +1,18 @@
-import React from 'react';
-import { Grid2 } from '@mui/material';
-import doctorImage from '../Assets/Perfil_Neto3.png';
+import React, { useEffect, useState } from 'react';
 
-function Header() {
+import { Grid2 } from '@mui/material';
+ 
+
+function Header({ medico }) {
+
+
+
   return (
     <Grid2
       container
       className="bg-cover bg-center h-64 md:h-96"
       style={{
-        backgroundImage: `url(${doctorImage})`,
+        backgroundImage: `url(${medico.imageUrl})`,
         backgroundRepeat: 'no-repeat',
       }}
     >

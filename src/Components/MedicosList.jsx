@@ -21,8 +21,10 @@ const MedicosList = () => {
             <ul>
                 {medicos.map((medico) => (
                     <li key={medico.id}>
-                     <div><MedicCard currentMedic = {medico }  /></div> 
-                     
+                        {/* Agregar un Link para redirigir a la página del médico */}
+                        <Link to={`/medico/${medico.id}`}>
+                            <MedicCard currentMedic={medico} />
+                        </Link>
                     </li>
                 ))}
             </ul>

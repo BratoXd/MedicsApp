@@ -8,7 +8,7 @@ const MedicosList = () => {
 
     useEffect(() => {
         const fetchMedicos = async () => {
-            const response = await fetch('http://localhost:4000/medicos');
+            const response = await fetch('https://be-medicapp.onrender.com/medicos');
             const data = await response.json();
             setMedicos(data);
         };

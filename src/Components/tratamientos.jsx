@@ -10,7 +10,7 @@ function Tratamientos({ medico } ) {
         <div className="mt-4 p-6 bg-white shadow-md rounded-md">
  
  
-            <h4 className="text-lg font-semibold text-blue-900">El doctor es experto en:</h4>
+            <h4 className="text-lg font-semibold text-blue-900">Atención en:</h4>
             <br></br>
             <div className="flex flex-wrap">
                 

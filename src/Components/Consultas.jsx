@@ -1,6 +1,9 @@
 import React from 'react';
  
 function Consultas( { medico } ) {
+    if (medico.MedicCenter === null) {
+        return null; 
+    }
     return (
         <div className="mt-4 p-6 bg-white shadow-md rounded-md">
             {/* Logo y Nombre */}

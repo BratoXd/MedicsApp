@@ -21,8 +21,8 @@ const MedicoDetail = () => {
     useEffect(() => {
         const fetchMedico = async () => {
             try {
-                const response = await fetch(`http://localhost:4000/medicos/${id}`);
-              //  const response = await fetch(`https://be-medicapp.onrender.com/medicos/${id}`);
+              //  const response = await fetch(`http://localhost:4000/medicos/${id}`);
+                 const response = await fetch(`https://be-medicapp.onrender.com/medicos/${id}`);
                 if (!response.ok) {
                     throw new Error('No se pudo obtener la información del médico');
                 }

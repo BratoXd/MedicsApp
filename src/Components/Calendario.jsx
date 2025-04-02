@@ -53,7 +53,11 @@ function Calendario() {
     const telefono = '+5215533285931';  
 
     const enviarWhatsApp = (dia, horario) => {
-        const mensaje = `Quiero una cita el ${dia} de ${horario}`;
+        const mensaje = `Estimado Dr: Nestor Gibran Lopez Diaz.
+ 
+Me comunico con usted a través de MEDIC-APP. Me gustaría agendar una cita el ${dia}  a las ${horario} Quedo en espera de su confirmación. 
+
+Saludos cordiales `;
         const enlace = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
         window.open(enlace, '_blank');
     };

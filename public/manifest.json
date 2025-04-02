@@ -1,25 +1,21 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Medimac",
+  "name": "Medimac - Dr. Nestor Lopez",
+  "description": "Cirujano Pediatra especializado en atención infantil.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/medimac_logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
-      "src": "medimac_Logo.png",
-      "type": "image/jpg",
-      "sizes": "192x192"
-    },
-    {
-      "src": "medimac_Logo.jpg",
-      "type": "image/jpg",
-      "sizes": "512x512"
+      "src": "/medimac_logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }

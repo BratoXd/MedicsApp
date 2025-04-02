@@ -27,26 +27,6 @@ const MedicoDetail = () => {
                     throw new Error('No se pudo obtener la información del médico');
                 }
                 const data = await response.json();
-
-                if (data.campaña_activa && data.google_ads_id) {
-                    const script = document.createElement("script");
-                    script.async = true;
-                    script.src = `https://www.googletagmanager.com/gtag/js?id=${data.google_ads_id}`;
-                    document.head.appendChild(script);
-            
-                    const script2 = document.createElement("script");
-                    script2.innerHTML = `
-                      window.dataLayer = window.dataLayer || [];
-                      function gtag(){dataLayer.push(arguments);}
-                      gtag('js', new Date());
-                      gtag('config', '${data.google_ads_id}');
-                    `;
-                    document.head.appendChild(script2);
-                  }
-                
-
-
-
                 setMedico(data);
                 console.log(data)
             } catch (err) {

@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Card, CardContent, Box, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
+import CancelIcon from '@mui/icons-material/Cancel';
+import InfoIcon from '@mui/icons-material/Info';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const CalendarComponent = () => {
     const [selectedEvent, setSelectedEvent] = useState(null);
@@ -52,46 +56,54 @@ const CalendarComponent = () => {
                     </Typography>
 
                     {/* Tabla de citas */}
-                    <TableContainer sx={{ marginBottom: 4 }}>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>Fecha</TableCell>
-                                    <TableCell>Paciente</TableCell>
-                                    <TableCell>Costo</TableCell>
-                                    <TableCell>Estado de Pago</TableCell>
-                                    <TableCell>Acción</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {events.map((event) => (
-                                    <TableRow key={event.title}>
-                                        <TableCell>{event.date}</TableCell>
-                                        <TableCell>{event.paciente}</TableCell>
-                                        <TableCell>{event.costo}</TableCell>
-                                        <TableCell>{event.estadoPago}</TableCell>
-                                        <TableCell>
-                                            {/* Contenedor de los botones */}
-                                            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1 }}>
-                                                <Button variant="outlined" color="black" onClick={() => handleEventClick(event)}>
-                                                    Confirmar 
-                                                </Button>
-                                                <Button variant="outlined" color="error" onClick={() => handleEventClick(event)}>
-                                                    Cancelar 
-                                                </Button>
-                                                <Button variant="outlined" color="info" onClick={() => handleEventClick(event)}>
-                                                     Detalles
-                                                </Button>
-                                                <Button variant="outlined" color="success" onClick={() => handleEventClick(event)}>
-                                                     WhatsApp
-                                                </Button>
-                                            </Box>
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
+                    <TableContainer sx={{ marginBottom: 1 }}>
+  <Table sx={{ minWidth: '100%', tableLayout: 'fixed' }}>
+    <TableHead>
+      <TableRow>
+        <TableCell>Fecha</TableCell>
+        <TableCell>Paciente</TableCell>
+        <TableCell>Costo</TableCell>
+        <TableCell>Estado de Pago</TableCell>
+        <TableCell>Acción</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {events.map((event) => (
+        <TableRow key={event.title}>
+          <TableCell sx={{ padding: '4px 8px' }}>{event.date}</TableCell> {/* Reducir padding */}
+          <TableCell sx={{ padding: '4px 8px' }}>{event.paciente}</TableCell> {/* Reducir padding */}
+          <TableCell sx={{ padding: '4px 8px' }}>{event.costo}</TableCell> {/* Reducir padding */}
+          <TableCell sx={{ padding: '4px 8px' }}>{event.estadoPago}</TableCell> {/* Reducir padding */}
+          <TableCell sx={{ padding: '4px 8px' }}>
+            {/* Contenedor de los botones */}
+            <Box sx={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)', // Para que quepan los botones en una fila
+              gap: 0.5,
+              '@media (max-width: 600px)': {
+                gridTemplateColumns: 'repeat(2, 1fr)', // En pantallas más pequeñas, también 4 botones por fila
+              },
+            }}>
+              <Button variant="outlined" color="black" onClick={() => handleEventClick(event)} sx={{ padding: '4px', fontSize: '0.7rem' }}>
+                <MenuIcon sx={{ fontSize: '1rem' }} /> {/* Ícono más pequeño */}
+              </Button>
+              <Button variant="outlined" color="error" onClick={() => handleEventClick(event)} sx={{ padding: '4px', fontSize: '0.7rem', width: 'min-content' }}>
+                <CancelIcon sx={{ fontSize: '1rem' }} /> {/* Ícono más pequeño */}
+              </Button>
+              <Button variant="outlined" color="info" onClick={() => handleEventClick(event)} sx={{ padding: '4px', fontSize: '0.7rem' }}>
+                <InfoIcon sx={{ fontSize: '1rem' }} /> {/* Ícono más pequeño */}
+              </Button>
+              <Button variant="outlined" color="success" onClick={() => handleEventClick(event)} sx={{ padding: '4px', fontSize: '0.7rem' }}>
+                <WhatsAppIcon sx={{ fontSize: '1rem' }} /> {/* Ícono más pequeño */}
+              </Button>
+            </Box>
+          </TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
+</TableContainer>
+
 
                     {/* Modal de detalles */}
                     <Dialog open={openModal} onClose={handleCloseModal}>

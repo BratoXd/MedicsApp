@@ -16,3 +16,12 @@ code {
     monospace;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f7;  /* Fondo suave */
+  color: #333;
+}
+
+.MuiTypography-root {
+  font-family: 'Roboto', sans-serif;
+}

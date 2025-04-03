@@ -7,6 +7,8 @@ import ExpedienteDigital from './Components/ExpedienteDigital';
 import CalendarComponent from './Components/CalendarComponent';
 import MedicoDetail from './Components/MedicDetail';
 import DoctorForm from './Components/DoctorForm';
+import AgregarPacienteForm from './Components/AgregarPacienteForm';
+import RecetaDigital from './Components/RecetaDigitalForm';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function DoctorProfile() {
@@ -109,6 +111,38 @@ function DoctorProfile() {
           >
             <ListItemText primary="Agregar Doctor" />
           </ListItem>
+
+          <ListItem
+            button
+            component={Link}
+            to="/addPatient"
+            sx={{
+              padding: '15px 20px',
+              '&:hover': {
+                backgroundColor: '#f0f0f5',
+                cursor: 'pointer',
+              },
+            }}
+          >
+            <ListItemText primary="Agregar Paciente" />
+          </ListItem>
+
+
+          <ListItem
+            button
+            component={Link}
+            to="/RecetaDigital"
+            sx={{
+              padding: '15px 20px',
+              '&:hover': {
+                backgroundColor: '#f0f0f5',
+                cursor: 'pointer',
+              },
+            }}
+          >
+            <ListItemText primary="Receta Digital" />
+          </ListItem>
+
         </List>
       </Drawer>
 
@@ -118,6 +152,8 @@ function DoctorProfile() {
         <Route path="/digitalExp" element={<ExpedienteDigital />} />
         <Route path="/medico/:id" element={<MedicoDetail />} />
         <Route path="/addDoctorForm" element={<DoctorForm />} />
+        <Route path="/addPatient" element={<AgregarPacienteForm />} />
+        <Route path="/RecetaDigital" element={<RecetaDigital />} />
       </Routes>
     </Router>
   );

@@ -9,6 +9,8 @@ import MedicoDetail from './Components/MedicDetail';
 import DoctorForm from './Components/DoctorForm';
 import AgregarPacienteForm from './Components/AgregarPacienteForm';
 import RecetaDigital from './Components/RecetaDigitalForm';
+import EvaluacionPaciente from './Components/EvaluacionPaciente';
+import VideoCall from './Components/VideoCall';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function DoctorProfile() {
@@ -143,7 +145,45 @@ function DoctorProfile() {
             <ListItemText primary="Receta Digital" />
           </ListItem>
 
+
+
+          <ListItem
+            button
+            component={Link}
+            to="/EvaluacionPaciente"
+            sx={{
+              padding: '15px 20px',
+              '&:hover': {
+                backgroundColor: '#f0f0f5',
+                cursor: 'pointer',
+              },
+            }}
+          >
+            <ListItemText primary="Evaluacion Paciente" />
+          </ListItem>
+
+
+
+          <ListItem
+            button
+            component={Link}
+            to="/VideoCall"
+            sx={{
+              padding: '15px 20px',
+              '&:hover': {
+                backgroundColor: '#f0f0f5',
+                cursor: 'pointer',
+              },
+            }}
+          >
+            <ListItemText primary="Video Llamada" />
+          </ListItem>
+
         </List>
+
+
+
+        
       </Drawer>
 
       <Routes>
@@ -154,6 +194,8 @@ function DoctorProfile() {
         <Route path="/addDoctorForm" element={<DoctorForm />} />
         <Route path="/addPatient" element={<AgregarPacienteForm />} />
         <Route path="/RecetaDigital" element={<RecetaDigital />} />
+        <Route path="/EvaluacionPaciente" element={<EvaluacionPaciente />} />
+        <Route path="/VideoCall" element={<VideoCall />} />
       </Routes>
     </Router>
   );

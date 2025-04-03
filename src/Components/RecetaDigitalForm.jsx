@@ -85,7 +85,7 @@ const RecetaDigitalForm = ({ pacienteId, medicamentos }) => {
                     <Grid item xs={12} sm={6}>
                         <Grid item xs={12} sm={6}>
                             <TextField
-                                label="Medicoamento"
+                                label="Medicamento"
                                 variant="outlined"
                                 fullWidth
                                 name="dosis"

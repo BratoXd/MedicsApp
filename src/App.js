@@ -4,7 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import MedicosList from './Components/MedicosList';
 import ExpedienteDigital from './Components/ExpedienteDigital';
-import CalendarComponent from './Components/CalendarComponent';
+import CalendarComponent from './Components/AgendaComponent';
 import MedicoDetail from './Components/MedicDetail';
 import DoctorForm from './Components/DoctorForm';
 import AgregarPacienteForm from './Components/AgregarPacienteForm';
@@ -12,6 +12,10 @@ import RecetaDigital from './Components/RecetaDigitalForm';
 import EvaluacionPaciente from './Components/EvaluacionPaciente';
 import VideoCall from './Components/VideoCall';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'leaflet/dist/leaflet.css';
+
+
+
 
 function DoctorProfile() {
   const [open, setOpen] = useState(false);
@@ -74,6 +78,21 @@ function DoctorProfile() {
           <ListItem
             button
             component={Link}
+            to="/addDoctorForm"
+            sx={{
+              padding: '15px 20px',
+              '&:hover': {
+                backgroundColor: '#f0f0f5',
+                cursor: 'pointer',
+              },
+            }}
+          >
+            <ListItemText primary="Agregar Doctor" />
+          </ListItem>
+
+          <ListItem
+            button
+            component={Link}
             to="/agenda"
             sx={{
               padding: '15px 20px',
@@ -85,6 +104,7 @@ function DoctorProfile() {
           >
             <ListItemText primary="Agenda" />
           </ListItem>
+
           <ListItem
             button
             component={Link}
@@ -99,20 +119,7 @@ function DoctorProfile() {
           >
             <ListItemText primary="Expediente Digital" />
           </ListItem>
-          <ListItem
-            button
-            component={Link}
-            to="/addDoctorForm"
-            sx={{
-              padding: '15px 20px',
-              '&:hover': {
-                backgroundColor: '#f0f0f5',
-                cursor: 'pointer',
-              },
-            }}
-          >
-            <ListItemText primary="Agregar Doctor" />
-          </ListItem>
+
 
           <ListItem
             button

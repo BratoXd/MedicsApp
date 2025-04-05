@@ -10,7 +10,7 @@ const DisponibilidadSemanal = () => {
     const [workingHours, setWorkingHours] = useState({ start: "08:00", end: "18:00" });
     const [appointments, setAppointments] = useState({});
 
-    const timeSlots = useMemo(() => 
+    const timeSlots = useMemo(() =>
         generateSlots(workingHours.start, workingHours.end, sessionDuration, appointments, selectedDay),
         [workingHours.start, workingHours.end, sessionDuration, appointments, selectedDay]
     );
@@ -19,11 +19,12 @@ const DisponibilidadSemanal = () => {
         const slots = [];
         const startTime = new Date(`2023-01-01T${start}:00`);
         const endTime = new Date(`2023-01-01T${end}:00`);
-        
+
         const dayAppointments = appointments[selectedDay] || [];
         const bookedTimes = dayAppointments.map(appt => ({
             start: new Date(`2023-01-01T${appt.start}:00`),
-            end: new Date(`2023-01-01T${appt.end}:00`)
+            end: new Date(`2023-01-01T${appt.end}:00`),
+            duration: appt.sessionDurations
         }));
 
         let currentTime = startTime;
@@ -35,8 +36,8 @@ const DisponibilidadSemanal = () => {
                 const slotKey = `${slotStart.toTimeString().slice(0, 5)}-${slotEnd.toTimeString().slice(0, 5)}`;
 
                 // Verificamos si el slot se traslapa con alguna cita existente
-                const hasOverlap = bookedTimes.some(appt => 
-                    (slotStart < appt.end && slotEnd > appt.start)
+                const hasOverlap = bookedTimes.some(appt =>
+                    (slotStart < appt.end && slotEnd > appt.start && duration != appt.duration)
                 );
 
                 if (!hasOverlap) {
@@ -53,26 +54,26 @@ const DisponibilidadSemanal = () => {
         return slots;
     }
 
-    const toggleAvailability = useCallback((day, slotKey) => {
+    const toggleAvailability = useCallback((day, slotKey, sessionDurations) => {
         const [start, end] = slotKey.split('-');
-        
+
         setAppointments((prev) => {
             const updated = { ...prev };
             const dayAppointments = updated[day] ? [...updated[day]] : [];
 
             // Verificamos si el slot ya está agendado
-            const existingIndex = dayAppointments.findIndex(appt => 
-                appt.start === start && appt.end === end
+            const existingIndex = dayAppointments.findIndex(appt =>
+                appt.start === start && appt.end === end && appt.sessionDurations === sessionDurations
             );
 
-            if (existingIndex !== -1) {
+            if (existingIndex !== -1 && sessionDuration !== dayAppointments[existingIndex]) {
                 // Si existe, lo eliminamos
                 dayAppointments.splice(existingIndex, 1);
             } else {
                 // Verificamos si hay traslape con citas existentes
                 const newStart = new Date(`2023-01-01T${start}:00`);
                 const newEnd = new Date(`2023-01-01T${end}:00`);
-                
+
                 const hasOverlap = dayAppointments.some(appt => {
                     const apptStart = new Date(`2023-01-01T${appt.start}:00`);
                     const apptEnd = new Date(`2023-01-01T${appt.end}:00`);
@@ -80,7 +81,7 @@ const DisponibilidadSemanal = () => {
                 });
 
                 if (!hasOverlap) {
-                    dayAppointments.push({ start, end });
+                    dayAppointments.push({ start, end, sessionDurations });
                 } else {
                     return prev; // No permitimos traslapes
                 }
@@ -107,9 +108,11 @@ const DisponibilidadSemanal = () => {
                 {daysOfWeek.map((day) => (
                     <Button
                         key={day}
-                        variant={selectedDay === day ? "contained" : "outlined"}
+                        variant={selectedDay === day || appointments[day]  ? "contained" : "outlined"}
                         fullWidth
                         onClick={() => handleDaySelect(day)}
+                        color={appointments[day] ? "success" : "primary"}
+                        
                     >
                         {day}
                     </Button>
@@ -126,8 +129,8 @@ const DisponibilidadSemanal = () => {
                         className="flex justify-center"
                     >
                         {sessionDurations.map((duration) => (
-                            <ToggleButton 
-                                key={duration} 
+                            <ToggleButton
+                                key={duration}
                                 value={duration}
                                 aria-label={`${duration} minutos`}
                             >
@@ -140,13 +143,13 @@ const DisponibilidadSemanal = () => {
                             <Button
                                 key={slot.key}
                                 fullWidth
-                                variant={appointments[selectedDay]?.some(appt => 
+                                variant={appointments[selectedDay]?.some(appt =>
                                     appt.start === slot.start && appt.end === slot.end
                                 ) ? "contained" : "outlined"}
-                                color={appointments[selectedDay]?.some(appt => 
+                                color={appointments[selectedDay]?.some(appt =>
                                     appt.start === slot.start && appt.end === slot.end
                                 ) ? "primary" : "success"}
-                                onClick={() => toggleAvailability(selectedDay, slot.key)}
+                                onClick={() => toggleAvailability(selectedDay, slot.key, sessionDuration)}
                             >
                                 {`${slot.start} - ${slot.end}`}
                             </Button>
